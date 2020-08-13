@@ -1,0 +1,2 @@
+# Robotics-Simulations-in-V-Rep-using-Matlab
+Robotics simulation is one of the most important tasks in robotics. Pre-requisite of a robotics project is simulation. In the task of simulation, v-rep is a favorable choice as it has nice interactive environment. Moreover, v-rep is flexible with language. One can code in python, lua, or matlab etc. Here it is a repository where I keep all of my v-rep simulations in robotics.

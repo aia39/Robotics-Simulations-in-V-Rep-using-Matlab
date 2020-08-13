@@ -16,3 +16,17 @@ if (sim_call_type==sim_childscriptcall_initialization) then
 end
 ```
 In the non threaded child script of Cuboid object in V-rep simulator to make it function properly.
+
+# Demonstration
+A video of working of obstacle avoidance is demonstrated :
+
+![](Obstacle Avoidance/obstacle_avoidance.mp4)
+
+
+
+# References 
+* To know details about functions used in the matlab script go to <a href="https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm">this</a> site find details about your desired function.
+* If you are beginner in using v-rep then you can watch these 2 tutorials :
+https://www.youtube.com/watch?v=piI5wYEXUms&t=202s&fbclid=IwAR3hdgNkrTcK4cGtiiKo3kiavTjCvyeOyCJkC4UNHyOWNPiH9um6j53LsKQ
+
+https://www.youtube.com/watch?v=mal48Vd-DQY&t=858s&fbclid=IwAR0-9H6sZwo0l0wZJC-9JB_-sq3tkaaNsHZOkjWGyyX39kl9ivi3uvDXxTo

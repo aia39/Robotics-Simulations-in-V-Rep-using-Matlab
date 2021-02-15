@@ -16,6 +16,8 @@ if(clientID>-1)
    des = [1,1];  %destination point
    kp = 0.8;
    kd = 0.4;
+   ki = 0.3;
+   i = 0;
    
    prev_error = 0;
    %[returnCode,camera]=vrep.simxGetObjectHandle(clientID,'Vision_sensor',vrep.simx_opmode_blocking);
@@ -41,8 +43,8 @@ if(clientID>-1)
 
    p = kp*error;
    d = kd*(error-prev_error);
-
-   pid = p + d;  %pd is used here
+   i = ki*(i+error);
+   pid = p + d +i;
    prev_error = error;  %for Differential error
    
    base = 1; %base speed of both wheel

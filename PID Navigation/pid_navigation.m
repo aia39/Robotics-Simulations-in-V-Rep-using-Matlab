@@ -13,9 +13,7 @@ if(clientID>-1)
    [returnCode,left_motor]=vrep.simxGetObjectHandle(clientID,'Pioneer_p3dx_leftMotor',vrep.simx_opmode_blocking);
    [returnCode,right_motor]=vrep.simxGetObjectHandle(clientID,'Pioneer_p3dx_rightMotor',vrep.simx_opmode_blocking);
   
-   des_x = 1;
-   des_y = 1;
-   des = [1,1];
+   des = [1,1];  %destination point
    kp = 0.8;
    kd = 0.4;
    
@@ -44,17 +42,17 @@ if(clientID>-1)
    p = kp*error;
    d = kd*(error-prev_error);
 
-   pid = p + d;
-   prev_error = error;
+   pid = p + d;  %pd is used here
+   prev_error = error;  %for Differential error
    
    base = 1; %base speed of both wheel
-   ul = base + pid;
-   ur = base - pid;
+   ul = base + pid; %left wheel speed
+   ur = base - pid;  %right wheel speed
    [r1]=vrep.simxSetJointTargetVelocity( clientID,left_motor, ul,vrep.simx_opmode_blocking);  
    [r2]=vrep.simxSetJointTargetVelocity( clientID,right_motor, ur,vrep.simx_opmode_blocking);
    pause(0.01);
        
-   if(distance(des,pos(1:2)) <= 0.05)  %if this robot act as follower and if it has reached symmetric point or not
+   if(distance(des,pos(1:2)) <= 0.05)  %if this robot reaches the radius of 0.05 around the destination then it stops
        [r1]=vrep.simxSetJointTargetVelocity( clientID,left_motor, 0,vrep.simx_opmode_blocking);  
        [r2]=vrep.simxSetJointTargetVelocity( clientID,right_motor, 0,vrep.simx_opmode_blocking); 
        break
